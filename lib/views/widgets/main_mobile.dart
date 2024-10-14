@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../constants/colors.dart';
 
+
 class MainMobile extends StatelessWidget {
   const MainMobile({super.key});
 

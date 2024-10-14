@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:majd_portfolio/constants/colors.dart';
 import 'package:majd_portfolio/constants/size.dart';
-import 'package:majd_portfolio/constants/skill_items.dart';
-import 'package:majd_portfolio/views/widgets/drawer_mobile.dart';
+import 'package:majd_portfolio/utils/project_utils.dart';
 import 'package:majd_portfolio/views/widgets/header_desktop.dart';
 import 'package:majd_portfolio/views/widgets/header_mobile.dart';
 import 'package:majd_portfolio/views/widgets/main_mobile.dart';
 import 'package:majd_portfolio/views/widgets/skills_desktop.dart';
-import 'package:majd_portfolio/views/widgets/skills_mobile.dart';
 
+import '../../constants/colors.dart';
+import '../widgets/drawer_mobile.dart';
 import '../widgets/main_desktop.dart';
-
-
+import '../widgets/project_card.dart';
+import '../widgets/project_section.dart';
+import '../widgets/skills_mobile.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -22,21 +22,23 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
     final screenWidth = screenSize.width;
     final screenHeight = screenSize.height;
-    return  LayoutBuilder(
-      builder: (context,constraints){
-        return Scaffold(
-          key: scaffoldKey,
-          backgroundColor: CustomColors.scaffoldBg,
-          endDrawer: constraints.maxWidth>=kMinDesktopWidth?null: const DrawerMobile(),
-          body: ListView(
-            scrollDirection: Axis.vertical,
-            children: [
-              //main
+    return LayoutBuilder(builder: (context, constraints) {
+      return Scaffold(
+        key: scaffoldKey,
+        backgroundColor: CustomColors.scaffoldBg,
+        endDrawer: constraints.maxWidth >= kMinDesktopWidth
+            ? null
+            : const DrawerMobile(),
+        body: ListView(
+          scrollDirection: Axis.vertical,
+          children: [
+            //main
               if(constraints.maxWidth>=kMinDesktopWidth)
               const HeaderDesktop()else
               HeaderMobile(
@@ -74,29 +76,25 @@ const SizedBox(height: 50),
                                    ],
                 ),
               ),
-              //PROJECTS
-              Container(
-                height: 500,
-                width: double.maxFinite,
-
-              ),
-              //CONTACT
-              Container(
-                height: 500,
-                width: double.maxFinite,
-                color: Colors.blueGrey,
-              ),
-              //FOOTER
-              Container(
-                height: 500,
-                width: double.maxFinite,
-
-              ),
-            ],
-          ),
-
-        );
-      }
-    );
+            SizedBox(height:30 ),
+            //PROJECTS
+            const ProjectsSection(),
+            //CONTACT
+            Container(
+              height: 500,
+              width: double.maxFinite,
+              color: Colors.blueGrey,
+            ),
+            //FOOTER
+            Container(
+              height: 500,
+              width: double.maxFinite,
+            ),
+          ],
+        ),
+      );
+    });
   }
 }
+
+
