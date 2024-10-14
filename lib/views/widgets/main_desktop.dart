@@ -32,7 +32,7 @@ class MainDesktop extends StatelessWidget {
                   child: ElevatedButton(onPressed: (){}, child: const Text('Get in touch'),)),
             ],
           ),
-          Image.asset('assets/images/home.png',width: screenWidth/2.5,)
+          Image.asset('assets/images/my_flutter_avatar.png',width: screenWidth/2.5,)
         ],
       ),
     );

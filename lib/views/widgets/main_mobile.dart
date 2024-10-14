@@ -28,7 +28,7 @@ class MainMobile extends StatelessWidget {
             },
             blendMode: BlendMode.srcATop,
 
-            child: Image.asset('assets/images/home.png',width: screenWidth,),
+            child: Image.asset('assets/images/my_flutter_avatar.png',width: screenWidth,),
           ),
           const SizedBox(height: 30),
           //intro text

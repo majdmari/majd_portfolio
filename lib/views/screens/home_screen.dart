@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:majd_portfolio/constants/colors.dart';
 import 'package:majd_portfolio/constants/size.dart';
+import 'package:majd_portfolio/constants/skill_items.dart';
 import 'package:majd_portfolio/views/widgets/drawer_mobile.dart';
 import 'package:majd_portfolio/views/widgets/header_desktop.dart';
 import 'package:majd_portfolio/views/widgets/header_mobile.dart';
 import 'package:majd_portfolio/views/widgets/main_mobile.dart';
+import 'package:majd_portfolio/views/widgets/skills_desktop.dart';
+import 'package:majd_portfolio/views/widgets/skills_mobile.dart';
 
 import '../widgets/main_desktop.dart';
 
@@ -49,9 +52,27 @@ class _HomeScreenState extends State<HomeScreen> {
 
               //SKILLs
               Container(
-                height: 500,
-                width: double.maxFinite,
-                color: Colors.blueGrey,
+
+                width: screenWidth,
+                color: CustomColors.bgLight1,
+                padding: const EdgeInsets.fromLTRB(25,20, 25, 60),
+                child:  Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    //title
+                    const Text('What i can do',style: TextStyle(
+fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: CustomColors.whitePrimary,
+                    ),),
+const SizedBox(height: 50),
+                    //platforms and skills
+                    if(constraints.maxWidth>=kMedDesktopWidth)
+                    const SkillsDesktop()else
+
+                    const SkillsMobile(),
+                                   ],
+                ),
               ),
               //PROJECTS
               Container(
