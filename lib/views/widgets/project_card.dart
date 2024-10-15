@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:majd_portfolio/utils/project_utils.dart';
 
-import '../../constants/colors.dart';
 import 'dart:js' as js;
+
+import '../../constants/colors.dart';
 
 class ProjectCardWidget extends StatelessWidget {
   const ProjectCardWidget({
