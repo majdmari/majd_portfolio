@@ -74,9 +74,17 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               //Main Desktop
               if (constraints.maxWidth >= kMinDesktopWidth)
-                const MainDesktop()
+                 MainDesktop(
+                  onNavItemTap: (int navIndex) {
+                    scrollToSection(navIndex);
+                  },
+                )
               else
-                const MainMobile(),
+                 MainMobile(
+                   onNavItemTap: (int navIndex) {
+                     scrollToSection(navIndex);
+                   },
+                 ),
 
               //SKILLs
               Container(

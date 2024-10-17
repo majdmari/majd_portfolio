@@ -5,7 +5,8 @@ import '../../constants/colors.dart';
 
 
 class MainMobile extends StatelessWidget {
-  const MainMobile({super.key});
+  const MainMobile({super.key, required this.onNavItemTap});
+  final Function(int) onNavItemTap;
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +44,9 @@ class MainMobile extends StatelessWidget {
             ),),
           const SizedBox(height: 15),
           SizedBox(width: 190,
-            child: ElevatedButton(onPressed: (){}, child: const Text('Get in touch'),
+            child: ElevatedButton(onPressed: (){
+              onNavItemTap(3);
+            }, child: const Text('Get in touch'),
             ),
           ),
 

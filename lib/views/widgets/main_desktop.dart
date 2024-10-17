@@ -5,7 +5,8 @@ import '../../constants/colors.dart';
 
 
 class MainDesktop extends StatelessWidget {
-  const MainDesktop({super.key});
+  const MainDesktop({super.key, required this.onNavItemTap});
+  final Function(int) onNavItemTap;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +32,9 @@ class MainDesktop extends StatelessWidget {
                 ),),
               const SizedBox(height: 15),
               SizedBox(width: 250,
-                  child: ElevatedButton(onPressed: (){}, child: const Text('Get in touch'),)),
+                  child: ElevatedButton(onPressed: (){
+                    onNavItemTap(3);
+                  }, child: const Text('Get in touch'),)),
             ],
           ),
           Image.asset('assets/images/my_flutter_avatar.png',width: screenWidth/2.5,)
